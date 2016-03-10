@@ -1,5 +1,5 @@
 import numpy as np
-LIMIT_OF_ITERATION=10
+ITERATION_LIMIT=10
 
 def lu(A, b):
     sol = []
@@ -26,7 +26,7 @@ def sor(A, b):
     omega = 1.03
     
     x = np.zeros_like(b)
-    for itr in range(LIMIT_OF_ITERATION):
+    for itr in range(ITERATION_LIMIT):
             for j in range(len(b)):
                 sum=np.dot(A[j,:],x)
                 x[j]=x[j]+omega*(b[j]-sum)/A[j,j]
@@ -34,7 +34,7 @@ def sor(A, b):
     return list(sol)
 
 def solve(A, b):
-    condition = True
+    condition = np.count_nonzero(A)>1/2*len(A) 
     if condition:
         print('Solve by lu(A,b)')
         return lu(A,b)
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     ## checker.test(lu, sor, solve)
 
     A = np.array([[2,1,6], [8,3,2], [1,5,1]]).astype(float)
-    b = np.array ([9, 13, 7]).astype(float)
+    b = np.array([9, 13, 7]).astype(float)
     sol = np.linalg.solve(A,b)
     print(sol)
     
