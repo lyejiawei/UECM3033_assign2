@@ -2,6 +2,7 @@ import numpy as np
 ITERATION_LIMIT=10
 
 def lu(A, b):
+    print('Solve by sor(A,b)')
     sol = []
     n = len(A)
     for k in range(0,n-1): 
@@ -22,6 +23,7 @@ def lu(A, b):
             return list(sol)
             
 def sor(A, b):
+    print('Solve by sor(A,b)')
     sol = []
     omega = 1.03
     
@@ -34,8 +36,7 @@ def sor(A, b):
     return list(sol)
 
 def solve(A, b):
-    condition = np.count_nonzero(A)>1/2*len(A) 
-    if condition:
+    if (np.any(np.diag(A)<0)):
         print('Solve by lu(A,b)')
         return lu(A,b)
     else:
