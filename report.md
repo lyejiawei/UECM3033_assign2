@@ -27,18 +27,16 @@ The answers are checked by multiply the solution matrix with A, and see whether 
 
 ## Task 2 -- SVD method and image compression
 
-My original picture file (mypicture.jpg)
+My original picture file (mypicture_original.jpg):
 
-![mypicture.jpg](mypicture.jpg)
+![mypicture_original.jpg](mypicture_original.jpg)
 
 There are 800 non-zero elements in $\Sigma$ as the total elements is 800.
 
-My lower resolution of picture files (mypicture_lowresolution.png)
-
+My lower resolution of picture files (mypicture_lowresolution.png):
 ![mypicture_lowresolution.png](mypicture_lowresolution.png)
 
-My higher resolution of picture files (mypicture_highresolution.png)
-
+My higher resolution of picture files (mypicture_highresolution.png):
 ![mypicture_highresolution.png](mypicture_highresolution.png)
 
 In this task of assignment, firstly the picture that I have been chosen is read. Then, the red(r), green (g), blue (b) arrays is generated. Next, U, sigma, and V for red, green and blue matrix is generated respectively with r1=U, r2=sigma, r3=V. The number of non-zero elements in each colour of decompose sigma is checked and print out. First n-term of non-zero elements is kept. By creating diagonal matrix to perform dot multiplication, the dimension of r2 to (800, 1000) is changed since original r2 from linalg.svd is (800, 1). Next, dot multiplication is performed to create lower resolution pictures. As the result, two groups of four pictures will be plotted. Each group of pictures contain the original colour, red, green, and blue. The first group of picture is the original set while the second group of picture is the lower resolution set.
